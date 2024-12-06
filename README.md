@@ -5,11 +5,9 @@ Este repositório contém um projeto que replica o layout da página inicial do 
 ## Tabela de Conteúdos
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Como Usar](#como-usar)
 - [Créditos](#créditos)
 
 ## Visão Geral do Projeto
-CPU
 O objetivo deste projeto foi criar um aplicativo desktop que mostre o uso de recursos do sistema(CPU, RAM, e ARMAZENAMENTO).
 
 ## Tecnologias Utilizadas
