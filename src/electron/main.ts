@@ -1,6 +1,6 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow } from 'electron';
 import path from 'path';
-import { isDev } from './util.js';
+import { ipcHandle, isDev } from './util.js';
 import { getStaticData, pullResources } from './resourceManager.js';
 import { getPreloadPath } from './pathResolver.js';
 
@@ -18,7 +18,7 @@ app.on('ready', () => {
 
   pullResources(mainWindow);
 
-  ipcMain.handle('getStaticData', () => {
+  ipcHandle('getStaticData', () => {
     return getStaticData();
   });
 });
