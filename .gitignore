@@ -13,7 +13,6 @@ dist-react
 dist-electron
 *.local
 
-*.png
 
 # Editor directories and files
 .vscode/*
@@ -25,3 +24,4 @@ dist-electron
 *.njsproj
 *.sln
 *.sw?
+*.png

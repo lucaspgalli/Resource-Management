@@ -20,6 +20,20 @@ export function ipcMainHandle<Key extends keyof EventPayloadMapping>(
   });
 }
 
+export function ipcMainOn<Key extends keyof EventPayloadMapping>(
+  key: Key,
+  handler: (payload: EventPayloadMapping[Key]) => void
+) {
+  ipcMain.on(key, (event, payload) => {
+    if (event.senderFrame) {
+      validateEventFrame(event.senderFrame);
+      return handler(payload);
+    } else {
+      throw new Error('senderFrame is null');
+    }
+  });
+}
+
 export function ipcWebContentsSend<Key extends keyof EventPayloadMapping>(
   key: Key,
   webContents: WebContents,
@@ -29,8 +43,6 @@ export function ipcWebContentsSend<Key extends keyof EventPayloadMapping>(
 }
 
 export function validateEventFrame(frame: WebFrameMain) {
-  console.log(frame.url);
-
   if (isDev() && new URL(frame.url).host === 'localhost:5123') {
     return;
   }

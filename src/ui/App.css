@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  text-align: right;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: #181818;
+  -webkit-app-region: drag;
+}
+
+header button {
+  all: unset;
+  border-radius: 10%;
+  width: 1rem;
+  height: 1rem;
+  margin: 0.35rem;
+  -webkit-app-region: no-drag;
+}

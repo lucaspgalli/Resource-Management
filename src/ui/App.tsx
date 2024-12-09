@@ -3,6 +3,9 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import { useStatistics } from './useStatistics';
 import { Chart } from './Chart';
+import { VscChromeMaximize } from 'react-icons/vsc';
+import { VscChromeMinimize } from 'react-icons/vsc';
+import { VscChromeClose } from 'react-icons/vsc';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,6 +34,17 @@ function App() {
   return (
     <>
       <div className='App'>
+        <header>
+          <button id='minimize' onClick={() => window.electron.sendFrameAction('MINIMIZE')}>
+            <VscChromeMinimize />
+          </button>
+          <button id='maximize' onClick={() => window.electron.sendFrameAction('MAXIMIZE')}>
+            <VscChromeMaximize />
+          </button>
+          <button id='close' onClick={() => window.electron.sendFrameAction('CLOSE')}>
+            <VscChromeClose />
+          </button>
+        </header>
         <div style={{ height: 120 }}>
           <Chart data={activeUsages} maxDataPoints={10} />
         </div>

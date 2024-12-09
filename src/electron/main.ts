@@ -1,5 +1,5 @@
 import { app, BrowserWindow } from 'electron';
-import { ipcMainHandle, isDev } from './util.js';
+import { ipcMainHandle, ipcMainOn, isDev } from './util.js';
 import { getStaticData, pullResources } from './resourceManager.js';
 import { getPreloadPath, getUIPath } from './pathResolver.js';
 import { createTray } from './tray.js';
@@ -10,6 +10,8 @@ app.on('ready', () => {
     webPreferences: {
       preload: getPreloadPath(),
     },
+
+    frame: false,
   });
   if (isDev()) {
     mainWindow.loadURL('http://localhost:5123/');
@@ -21,6 +23,20 @@ app.on('ready', () => {
 
   ipcMainHandle('getStaticData', () => {
     return getStaticData();
+  });
+
+  ipcMainOn('sendFrameAction', (payload) => {
+    switch (payload) {
+      case 'CLOSE':
+        mainWindow.close();
+        break;
+      case 'MINIMIZE':
+        mainWindow.minimize();
+        break;
+      case 'MAXIMIZE':
+        mainWindow.maximize();
+        break;
+    }
   });
 
   createTray(mainWindow);
