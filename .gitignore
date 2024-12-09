@@ -25,3 +25,7 @@ dist-electron
 *.sln
 *.sw?
 *.png
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
