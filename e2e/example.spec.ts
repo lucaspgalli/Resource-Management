@@ -7,7 +7,7 @@ async function waitForPreloadScript() {
   return new Promise((resolve) => {
     const interval = setInterval(async () => {
       const electronBridge = await mainPage.evaluate(() => {
-        return (window as Window & { electron?: any }).electron;
+        return (window as Window & { electron?: unknown }).electron;
       });
       if (electronBridge) {
         clearInterval(interval);
