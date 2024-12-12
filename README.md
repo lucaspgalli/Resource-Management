@@ -1,6 +1,6 @@
 # Resource Management
 
-Este repositório contém um projeto que replica o layout da página inicial do YouTube usando apenas **HTML** e **CSS**. Ele foi desenvolvido como parte de um projeto prático baseado em um curso de HTML/CSS no YouTube.
+Aplicativo desktop para visualizar recursos do sistema, feito com o curso de Electron da [freeCodeCamp.org](https://youtube.com/@freecodecamp?si=n4R44C8ZfXKcZQw3) no YouTube
 
 ## Tabela de Conteúdos
 - [Visão Geral do Projeto](#visão-geral-do-projeto)
